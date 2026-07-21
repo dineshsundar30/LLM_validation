@@ -1,0 +1,100 @@
+Evaluate AI by checking the right information, the right tool, relevance, and safety—not by matching exact text.
+
+1. ✅ Semantic Correctness
+Is the information correct?
+Check meaning, not exact wording.
+Remember: Right answer > Exact words
+
+2. 🛠️ Tool Behavior
+Did the AI use the correct tool?
+Judge the behavior, not just the output.
+Remember: Right tool = Better result
+
+2. 🛠️ Tool Behavior
+Did the AI use the correct tool?
+Judge the behavior, not just the output.
+Remember: Right tool = Better result
+
+4. 🔒 Safety & Guardrails
+Is the response safe, unbiased, and privacy-preserving?
+Remember: Safe + Fair + Private
+
+Quick Memory Trick: S.T.R.S.
+S → Semantic Correctness (Right information)
+T → Tool Behavior (Right tool)
+R → Relevance (Answers the question)
+S → Safety & Guardrails (Safe, fair, private)
+
+Evals: "Evals" is short for Evaluation in the AI world, an Evals is a strcutured, repeatable process for measuring how well an AI system perform on a specfic quality dimension.
+
+
+* Non-Deterministic AI
+Same input, different output every time. Traditional assert testing breaks down.
+
+* Evals Replace Assertions
+Instead of "is the output exactly X?", ask "how good is the output on dimension Y?" — scored 0 to 1.
+
+* DeepEval Framework
+Metrics, test cases (Goldens), instrumentation (tracing), and the evaluation loop.
+
+* Judge LLM Scores
+A separate, unbiased model reads the agent's work and grades it objectively.
+
+
+
+what is AI Agent : AI Agent is an LLM that can take action 
+
+*****************  DeepEval — The Framework  ******************************
+
+DeepEval is an open-source Python framework for evaluating LLM applications. It provides five core capabilities:
+
+📏 Metrics
+    Pre-built evaluation criteria.
+    Examples: Answer Relevancy, Faithfulness, Tool Correctness.
+    Supports custom criteria via GEval.
+
+📂 Test Cases (Goldens)
+    Structured containers for:
+    Inputs
+    Outputs
+    Expected values
+
+⚖️ Judge LLM
+    An LLM that scores the outputs.
+    It is a separate model from the one being tested.
+
+👁️ Tracing / Instrumentation
+    Hooks into LangChain, OpenAI, etc.
+    Automatically captures:
+    Tool calls
+    Intermediate steps
+    Retrieved documents
+
+▶️ Test Runner
+    Runs evaluation tests.
+    Integrates with pytest or standalone methods:
+    evaluate()
+    evals_iterator()
+
+
+## How Scoring Works in deepeval
+
+* Score Range: 0.0 – 1.0
+* Threshold = Pass/Fail line
+
+### Score Levels
+
+* 1.0 (Perfect): Fully satisfies metric
+* 0.7–0.9 (Good): Minor issues, overall solid
+* 0.4–0.6 (Mediocre): Needs improvement
+* 0.1–0.3 (Poor): Major failures
+
+### Thresholds
+
+* Quality Metrics: 0.7 → AnswerRelevancy, TaskCompletion, GEval
+* Safety Metrics: 0.5 → Bias, Toxicity, PII
+* Efficiency Metrics: 0.5 → StepEfficiency
+
+Recall: Score (0–1) + Threshold = Pass/Fail
+Score >= Threshold → ✅ Pass / Good
+Score < Threshold → ❌ Fail / Needs improvement
