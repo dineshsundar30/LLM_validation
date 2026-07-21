@@ -1,5 +1,6 @@
 pip install -U deepeval
-uv pip install -U deepeval or uv add deepeval (recomended) ---> with UV
+uv pip install -U deepeval or
+uv add deepeval (recomended) ---> with UV
 
 
 deepeval test run test_file.py  --> to run the TC
@@ -7,11 +8,10 @@ deepeval test run test_file.py  --> to run the TC
 
 curl -fsSL https://ollama.com/install.sh | sh  --> to install the ollma
 
-
-sudo systemctl stop ollama
+sudo systemctl start ollama
 systemctl status ollama
 
-sudo systemctl start ollama
+sudo systemctl stop ollama
 systemctl status ollama
 
 sudo systemctl restart ollama
@@ -28,4 +28,14 @@ ollama show llama3.2:1b     --> to see the metadata of the model
 
 ollama serve                --> to expose to local
 
+
+####################################  deepeval  ###############################################
+
+deepeval login          # to see the results in the confident_AI
+
+or
+
+import deepeval;
+
+deepeval.login(api_key="confident_us_5yj2IU0ykeXq9lule2+3C9ZoOsS/taVFbmPgYI8PFUg=")
 
