@@ -53,7 +53,7 @@ DeepEval is an open-source Python framework for evaluating LLM applications. It 
     Examples: Answer Relevancy, Faithfulness, Tool Correctness.
     Supports custom criteria via GEval.
 
-📂 Test Cases (Goldens)
+📂 Test Cases (Goldens | which is input and expected)
     Structured containers for:
     Inputs
     Outputs
@@ -104,7 +104,7 @@ Score < Threshold → ❌ Fail / Needs improvement
 
 
 Dataset  : In DeepEval, a dataset is a collection of "evaluation data"  that includes bot test cases and goldens
-
+Dataset = LLMTestcases + Goldens 
 
 
 
